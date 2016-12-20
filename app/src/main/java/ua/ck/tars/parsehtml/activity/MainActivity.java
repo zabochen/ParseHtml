@@ -76,9 +76,11 @@ public class MainActivity extends AppCompatActivity {
 
             // Inflate wordList
             for (int i = 0; i < elements.size(); i++) {
+                String buffer = elements.get(i + 1).text();
                 wordList.add(new Word(
                         Integer.valueOf(elements.get(i).text()),
-                        elements.get(i + 1).text(),
+                        buffer.substring(0, buffer.lastIndexOf(" ")),
+                        buffer.substring(buffer.indexOf("["), buffer.lastIndexOf("]") + 1),
                         elements.get(i + 2).text()));
                 i = i + 2;
             }
